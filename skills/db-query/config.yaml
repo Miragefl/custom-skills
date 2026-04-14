@@ -1,0 +1,30 @@
+# 数据库环境配置
+# 修改此文件以适配你的实际数据库连接信息
+
+environments:
+  local:
+    host: localhost
+    port: 3306
+    user: root
+    password: root123
+  sit:
+    host: 10.137.32.231
+    port: 32770
+    user: root
+    password: ydcloud123
+  uat:
+    host: 10.137.32.231
+    port: 32771
+    user: root
+    password: ydcloud123!
+
+# 项目数据库名映射
+# 添加新项目时，在此增加条目
+# 格式：项目名 -> 各环境对应的数据库名
+
+projects:
+  billing_rule:
+    local: billing_db
+    sit: billing_db
+    uat: billing_db
+
