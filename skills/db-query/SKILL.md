@@ -1,8 +1,9 @@
 ---
 name: db-query
-description: 数据库查询助手，支持多环境（local/sit/uat）SELECT 查询，自动识别项目和解析 MyBatis Mapper
+description: 数据库查询助手，支持多环境（local/sit/uat）SELECT 查询，自动识别项目和解析 MyBatis Mapper。调试场景必用 - 当 systematic-debugging 需要数据验证时自动调用。
 triggers:
   - keywords: [local, sit, uat, local环境, sit环境, uat环境]
+  - context: [systematic-debugging, debugging, 调试, 数据验证, 查数据库, SQL查询, 数据排查]
 ---
 
 <ANNOUNCEMENT>
@@ -16,10 +17,15 @@ triggers:
 
 ## 触发条件
 
-**自动触发：** 用户消息包含环境关键词时自动触发：
+**关键词触发：** 用户消息包含环境关键词时自动触发：
 - `local` / `local环境`
 - `sit` / `sit环境`
 - `uat` / `uat环境`
+
+**场景触发：** 以下场景自动触发：
+- 正在执行 `systematic-debugging` 调试流程
+- 需要数据验证 / 数据排查
+- 消息包含"查数据库"、"SQL查询"等意图
 
 **手动触发：** `/db-query` 命令调用
 
